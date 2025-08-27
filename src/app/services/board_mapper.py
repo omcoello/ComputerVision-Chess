@@ -10,7 +10,6 @@ class BoardMapper:
 
     @staticmethod
     def calculate_upper_lower_corners(points: np.ndarray, upper=True) -> np.ndarray:
-        # Aquí puedes mantener la lógica trigonométrica por ahora
         final_points = []
         for i in range(1, 7):
             data = points[i][0] - points[i-1][0]
@@ -47,7 +46,7 @@ class BoardMapper:
             counter += 1
 
     def generate_board_range(self, corners: np.ndarray):
-        # Divide los puntos y llena board_range
+        # Divide the points and fill board_range
         i = 7
         data = self.calculate_upper_lower_corners(corners[:i])
         self.add_data(data, 0, 1)
@@ -59,7 +58,7 @@ class BoardMapper:
             self.add_data(data, start_counter, 2)
             start_counter += 8
 
-        # Últimos dos bloques inferiores
+        # Last two lower blocks
         data = self.calculate_upper_lower_corners(corners[28:], upper=False)
         self.add_data(data, 48, 2)
         data = self.calculate_upper_lower_corners(corners[35:], upper=False)

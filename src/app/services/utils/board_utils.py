@@ -1,10 +1,10 @@
 from typing import Dict, List, Tuple
-from checkers.constants import SQUARE_SIZE
+from core.constants import SQUARE_SIZE
 
 Square = Dict[str, List[float]]
 
 def generate_game_board_dict(size=SQUARE_SIZE) -> Square:
-    """Genera las posiciones centrales de cada cuadrado para pygame."""
+    """Generates the center positions of each square for pygame."""
     d: Square = {}
     counter = 0
     for i in range(8):
@@ -14,6 +14,6 @@ def generate_game_board_dict(size=SQUARE_SIZE) -> Square:
     return d
 
 def get_row_col_from_mouse(pos: Tuple[int, int]) -> Tuple[int,int]:
-    """Convierte posición de mouse a fila y columna del tablero."""
+    """Convert mouse position to board row and column."""
     x, y = pos
     return y // SQUARE_SIZE, x // SQUARE_SIZE

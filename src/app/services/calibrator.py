@@ -26,7 +26,7 @@ class Calibrator:
         self.coord2D.append(corners_opt)
         self.coord3D.append(self.objp.copy())
 
-        # Dibujar esquinas (solo opcional para debug)
+        # Draw corners (Optional for debugging)
         img_drawn = cv2.drawChessboardCorners(img, self.chessboard_size, corners_opt, ret)
         cv2.namedWindow('calibration', cv2.WINDOW_NORMAL)
         cv2.resizeWindow('calibration', 800, 600)

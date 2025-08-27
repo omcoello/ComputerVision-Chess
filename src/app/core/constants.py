@@ -1,3 +1,4 @@
+from pathlib import Path
 import pygame
 import os
 
@@ -16,4 +17,10 @@ BLACK = (0, 0, 0)
 BLUE = (0, 0, 255)
 GREY = (128,128,128)
 
-CROWN = pygame.transform.scale(pygame.image.load(os.path.dirname(__file__) + '\\assets\\crown.png'), (44, 25))
+BASE_DIR = Path(__file__).resolve().parent.parent
+ASSETS_DIR = BASE_DIR / "ui" / "assets"
+CROWN_PATH = ASSETS_DIR / "crown.png"
+CROWN = pygame.transform.scale(
+    pygame.image.load(str(CROWN_PATH)),
+    (44, 25)
+)
