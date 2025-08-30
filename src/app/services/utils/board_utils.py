@@ -11,6 +11,7 @@ def generate_game_board_dict(size=SQUARE_SIZE) -> Square:
         for j in range(8):
             d[f"s{counter}"] = [j*size + size/2, i*size + size/2]
             counter += 1
+    print("initial dictionary data:", d)
     return d
 
 def get_row_col_from_mouse(pos: Tuple[int, int]) -> Tuple[int,int]:

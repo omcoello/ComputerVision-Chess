@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 from pathlib import Path
 
+TEMP_DIR = Path(__file__).resolve().parent.parent / "temp"
+
 class Calibrator:
     def __init__(self, chessboard_size=(7,7)):
         self.chessboard_size = chessboard_size
@@ -12,7 +14,7 @@ class Calibrator:
         self.coord3D = []
 
     def process_image(self, filepath: str) -> bool:
-        path = Path(filepath)
+        path = Path(TEMP_DIR / filepath)
         img = cv2.imread(str(path))
         if img is None:
             return False
